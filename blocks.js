@@ -333,7 +333,7 @@ SyntaxElementMorph.prototype.setScale = function (num) {
     this.rfColor = new Color(120, 120, 120);
 };
 
-SyntaxElementMorph.prototype.setScale(1);
+SyntaxElementMorph.prototype.setScale(1.2);//TODO: default size of blocks determined by age
 SyntaxElementMorph.prototype.isCachingInputs = false;
 
 // SyntaxElementMorph instance creation:
