@@ -1,3 +1,12 @@
+cd work
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar composer
+composer global require schickling/git-s3:dev-master
+cd geekelves
+git-s3 config
+以后git-s3 deploy上传到s3
+
+
 curl https://pkg-config.freedesktop.org/releases/pkg-config-0.28.tar.gz -o pkgconfig.tgz
 tar zxvf pkgconfig.tgz 
 cd pkg-config-0.28/
