@@ -290,8 +290,8 @@ SnapTranslator.dict.zh = {
     'Stage selected:\nno motion primitives':
         '舞台选择:\n没有动作程序语言',
 
-    'move %n steps':
-        '移动 %n 歩',
+    'move %footprint %n steps':
+        '移动 %footprint %n 歩',
     'turn %clockwise %n degrees':
         '旋转 %clockwise %n 度',
     'turn %counterclockwise %n degrees':
