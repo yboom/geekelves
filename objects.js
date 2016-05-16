@@ -164,7 +164,7 @@ SpriteMorph.prototype.initBlocks = function () {
             only: SpriteMorph,
             type: 'command',
             category: 'motion',
-            spec: 'move %n steps',
+            spec: 'move %footprint %n steps',
             defaults: [10]
         },
         turn: {

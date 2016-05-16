@@ -1355,6 +1355,15 @@ SyntaxElementMorph.prototype.labelPart = function (spec) {
 
     // symbols:
 
+        case '%footprint':
+            part = new SymbolMorph('footprint');
+            part.size = this.fontSize * 1.2;
+            part.color = new Color(255, 255, 255);
+            part.shadowColor = this.color.darker(this.labelContrast);
+            part.shadowOffset = MorphicPreferences.isFlat ?
+                    new Point() : this.embossing;
+            part.drawNew();
+            break;
         case '%turtle':
             part = new SymbolMorph('turtle');
             part.size = this.fontSize * 1.2;
@@ -8245,7 +8254,8 @@ SymbolMorph.prototype.names = [
     'arrowDownOutline',
     'arrowRight',
     'arrowRightOutline',
-    'robot'
+    'robot',
+    'footprint'
 ];
 
 // SymbolMorph instance creation:
@@ -8409,6 +8419,8 @@ SymbolMorph.prototype.symbolCanvasColored = function (aColor) {
         return this.drawSymbolArrowRightOutline(canvas, aColor);
     case 'robot':
         return this.drawSymbolRobot(canvas, aColor);
+    case 'footprint':
+        return this.drawSymbolFootprint(canvas, aColor);
     default:
         return canvas;
     }
@@ -9082,6 +9094,74 @@ SymbolMorph.prototype.drawSymbolCircleSolid = function (canvas, color) {
     ctx.fillStyle = color.toString();
     ctx.arc(w / 2, w / 2, w / 2, radians(0), radians(360), false);
     ctx.fill();
+    return canvas;
+};
+
+SymbolMorph.prototype.drawSymbolFootprint = function (canvas, color) {
+    // answer a canvas showing a solid circle
+    var ctx = canvas.getContext('2d'),
+        w = canvas.width,
+        h = canvas.height;
+
+    ctx.scale(1.2*3.9757479375807576*w/600,1.2*3.9757479375807576*h/600);
+    ctx.fillStyle = color.toString();
+    ctx.save();
+    ctx.strokeStyle = color.toString();
+    ctx.beginPath();
+    ctx.moveTo(86.068,0);
+    ctx.bezierCurveTo(61.466,0,56.851,35.041,70.691,35.041);
+    ctx.bezierCurveTo(84.529,35.041,110.671,0,86.068,0);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.restore();
+    ctx.save();
+    ctx.strokeStyle = color.toString();
+    ctx.beginPath();
+    ctx.moveTo(45.217,30.699);
+    ctx.bezierCurveTo(52.586,31.149,60.671,2.577,46.821,4.374);
+    ctx.bezierCurveTo(32.976,6.171,37.845,30.249,45.217,30.699);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.restore();
+    ctx.save();
+    ctx.strokeStyle = color.toString();
+    ctx.beginPath();
+    ctx.moveTo(11.445,48.453);
+    ctx.bezierCurveTo(16.686,46.146,12.12,23.581,3.208,29.735);
+    ctx.bezierCurveTo(-5.7,35.89,6.204,50.759,11.445,48.453);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.restore();
+    ctx.save();
+    ctx.strokeStyle = color.toString();
+    ctx.beginPath();
+    ctx.moveTo(26.212,36.642);
+    ctx.bezierCurveTo(32.451,35.37,32.793,9.778,21.667,14.369);
+    ctx.bezierCurveTo(10.539,18.961,19.978,37.916,26.212,36.642);
+    ctx.lineTo(26.212,36.642);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.restore();
+    ctx.save();
+    ctx.strokeStyle = color.toString();
+    ctx.beginPath();
+    ctx.moveTo(58.791,93.913);
+    ctx.bezierCurveTo(59.898,102.367,52.589,106.542,45.431,101.092);
+    ctx.bezierCurveTo(22.644,83.743,83.16,75.088,79.171,51.386);
+    ctx.bezierCurveTo(75.86,31.712,15.495,37.769,8.621,68.553);
+    ctx.bezierCurveTo(3.968,89.374,27.774,118.26,52.614,118.26);
+    ctx.bezierCurveTo(64.834,118.26,78.929,107.226,81.566,93.248);
+    ctx.bezierCurveTo(83.58,82.589,57.867,86.86,58.791,93.913);
+    ctx.lineTo(58.791,93.913);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.restore();
+    
     return canvas;
 };
 

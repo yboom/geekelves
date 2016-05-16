@@ -1,0 +1,18 @@
+curl https://pkg-config.freedesktop.org/releases/pkg-config-0.28.tar.gz -o pkgconfig.tgz
+tar zxvf pkgconfig.tgz 
+cd pkg-config-0.28/
+./configure --with-internal-glib
+make
+sudo make install
+
+编辑 /usr/local/include/jmorecfg.h#263
+把typedef enum { FALSE = 0, TRUE = 1 } boolean;
+改成typedef short boolean;//...
+
+git clone https://github.com/nathan-muir/canvgc
+cd canvgc
+make
+make build
+然后copy svg文件到./foorprint.svg
+./bin/canvgc footprint.svg footprint.js
+将footprint.js编辑到目标程序中,适当调整scale
