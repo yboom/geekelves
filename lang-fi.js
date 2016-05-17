@@ -290,8 +290,8 @@ SnapTranslator.dict.fi = {
     'Stage selected:\nno motion primitives':
         'Esiintymislava valittuna\nei liikekomentoja',
 
-    'move %n steps':
-        'liiku %n askelta',
+    'move %footprint %n steps':
+        'liiku %footprint %n askelta',
     'turn %clockwise %n degrees':
         'k\u00e4\u00e4nny %clockwise %n astetta',
     'turn %counterclockwise %n degrees':
@@ -1127,6 +1127,8 @@ SnapTranslator.dict.fi = {
     // costumes
     'Turtle':
         'Osoitin',
+    'Elf':
+        'Tonttu',
     'Empty':
         'Tyhj\u00e4',
 
