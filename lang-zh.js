@@ -247,6 +247,8 @@ SnapTranslator.dict.zh = {
         '添加角色',
     'add a new Turtle sprite':
         '添加一个海龟角色',
+    'add a new Elf sprite':
+        '添加一个精灵角色',
 
     // tab help
     'costumes tab help':
@@ -1812,6 +1814,8 @@ SnapTranslator.dict.zh = {
     // costumes
     'Turtle':
         '海龟',
+    'Elf':
+        '精灵',
     'Empty':
         '空白',
 

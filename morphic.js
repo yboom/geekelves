@@ -4473,7 +4473,7 @@ PenMorph.prototype.drawNew = function (facing) {
     // my orientation can be overridden with the "facing" parameter to
     // implement Scratch-style rotation styles
 
-    var context, start, dest, left, right, len,
+    var context, start, dest, left, right, len, A, B, C, D, E, R,
         direction = facing || this.heading;
 
     if (this.isWarped) {
@@ -4486,32 +4486,85 @@ PenMorph.prototype.drawNew = function (facing) {
     start = this.center().subtract(this.bounds.origin);
 
     if (this.penPoint === 'tip') {
-        dest = start.distanceAngle(len * 0.75, direction - 180);
+        /*dest = start.distanceAngle(len * 0.75, direction - 180);
         left = start.distanceAngle(len, direction + 195);
-        right = start.distanceAngle(len, direction - 195);
+        right = start.distanceAngle(len, direction - 195);*/
+        
+        A = start.distanceAngle(len * 0.5, direction + 55 + 90 -8);
+        B = start.distanceAngle(len * 0.5, direction + 70 + 90 +8);
+        C = start.distanceAngle(len * 0.5, direction + 62.5 + 90);
+        R = len * 0.15;
+        D = C.distanceAngle(len * 0.52, direction + 90-45/2+90);
+        E = C.distanceAngle(len * 0.52, direction + 90+45/2+90);
     } else { // 'middle'
-        dest = start.distanceAngle(len * 0.75, direction);
+        /*dest = start.distanceAngle(len * 0.75, direction);
         left = start.distanceAngle(len * 0.33, direction + 230);
-        right = start.distanceAngle(len * 0.33, direction - 230);
+        right = start.distanceAngle(len * 0.33, direction - 230);*/
+        //TODO:
     }
 
     // cache penBounds
     this.penBounds = new Rectangle(
-        Math.min(start.x, dest.x, left.x, right.x),
-        Math.min(start.y, dest.y, left.y, right.y),
-        Math.max(start.x, dest.x, left.x, right.x),
-        Math.max(start.y, dest.y, left.y, right.y)
+        Math.min(start.x, A.x, B.x, D.x, E.x),//dest.x, left.x, right.x),
+        Math.min(start.y, A.y, B.y, D.y, E.y),//dest.y, left.y, right.y),
+        Math.max(start.x, A.x, B.x, D.x, E.x),//dest.x, left.x, right.x),
+        Math.max(start.y, A.y, B.y, D.y, E.y)//dest.y, left.y, right.y)
     );
 
-    // draw arrow shape
+    // draw arrow shape. luwei:turtle shape too
     context.fillStyle = this.color.toString();
-    context.beginPath();
+    /*context.beginPath();
 
     context.moveTo(start.x, start.y);
     context.lineTo(left.x, left.y);
     context.lineTo(dest.x, dest.y);
     context.lineTo(right.x, right.y);
 
+    context.closePath();
+    context.strokeStyle = 'white';
+    context.lineWidth = 3;
+    context.stroke();
+    context.strokeStyle = 'black';
+    context.lineWidth = 1;
+    context.stroke();
+    context.fill();*/
+    
+    context.beginPath();
+    context.moveTo(start.x, start.y);    
+    context.lineTo(A.x,A.y);
+    context.closePath();
+    context.strokeStyle = 'white';
+    context.lineWidth = 2;
+    context.stroke();
+    context.strokeStyle = this.color.toString();
+    context.lineWidth = 1;
+    context.stroke();
+    context.beginPath();
+    context.moveTo(start.x, start.y);    
+    context.lineTo(B.x,B.y);
+    context.closePath();
+    context.strokeStyle = 'white';
+    context.lineWidth = 2;
+    context.stroke();
+    context.strokeStyle = this.color.toString();
+    context.lineWidth = 1;
+    context.stroke();
+    
+    context.beginPath();
+    context.moveTo(C.x, C.y);    
+    context.lineTo(D.x,D.y);
+    context.lineTo(E.x,E.y);
+    context.closePath();
+    context.strokeStyle = 'white';
+    context.lineWidth = 3;
+    context.stroke();
+    context.strokeStyle = 'black';
+    context.lineWidth = 1;
+    context.stroke();
+    context.fill();
+    
+    context.beginPath();
+    context.arc(C.x,C.y,R,0, 2 * Math.PI, false);
     context.closePath();
     context.strokeStyle = 'white';
     context.lineWidth = 3;

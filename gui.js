@@ -1338,7 +1338,7 @@ IDE_Morph.prototype.createCorralBar = function () {
     newbutton.labelColor = this.buttonLabelColor;
     newbutton.contrast = this.buttonContrast;
     newbutton.drawNew();
-    newbutton.hint = "add a new Turtle sprite";
+    newbutton.hint = "add a new Elf sprite";//"add a new Turtle sprite";
     newbutton.fixLayout();
     newbutton.setCenter(this.corralBar.center());
     newbutton.setLeft(this.corralBar.left() + padding);
@@ -6657,7 +6657,7 @@ TurtleIconMorph.prototype.createLabel = function () {
     }
     txt = new StringMorph(
         localize(
-            this.object instanceof SpriteMorph ? 'Turtle' : 'Empty'
+            this.object instanceof SpriteMorph ? 'Elf'/*'Turtle'*/ : 'Empty'
         ),
         this.fontSize,
         this.fontStyle,

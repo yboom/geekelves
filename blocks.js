@@ -8730,14 +8730,56 @@ SymbolMorph.prototype.drawSymbolTurtle = function (canvas, color) {
     // answer a canvas showing a turtle
     var ctx = canvas.getContext('2d');
 
-    ctx.fillStyle = color.toString();
+    /*ctx.fillStyle = color.toString();
     ctx.beginPath();
     ctx.moveTo(0, 0);
     ctx.lineTo(canvas.width, canvas.height / 2);
     ctx.lineTo(0, canvas.height);
     ctx.lineTo(canvas.height / 2, canvas.height / 2);
     ctx.closePath();
+    ctx.fill();*/
+    
+    ctx.save();
+    ctx.scale(1.0666666666651994*canvas.width/500,1.0666666666651994*canvas.height/717);
+    
+    ctx.fillStyle = color.toString();
+    ctx.strokeStyle = 'black';
+    ctx.lineWidth = 20;
+    ctx.beginPath();
+    ctx.moveTo(297.14286,160.93363);
+    ctx.bezierCurveTo(297.14286,160.93363,297.14286,160.93363,2.857143,3.790776);
+    ctx.bezierCurveTo(148.57143,295.21935,151.42857,295.21935,151.42857,295.21935);
     ctx.fill();
+    ctx.stroke();
+    
+    ctx.fillStyle = color.toString();
+    ctx.strokeStyle = 'black';//color.toString();
+    ctx.lineWidth = 20;
+    ctx.beginPath();
+    ctx.moveTo(260,155.21933);
+    ctx.bezierCurveTo(323.118255,155.21933,374.28571,202.54923,374.28571,260.93362);
+    ctx.bezierCurveTo(374.28571,319.31801,323.118255,366.64791,260,366.64791);
+    ctx.bezierCurveTo(196.881745,366.64791,145.71429,319.31801,145.71429,260.93362);
+    ctx.bezierCurveTo(145.71429,202.54923,196.881745,155.21933,260,155.21933);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    
+    ctx.fillStyle = color.toString();
+    ctx.strokeStyle = 'black';
+    ctx.lineWidth = 20;
+    ctx.beginPath();
+    ctx.moveTo(235.39946,369.42021);
+    ctx.lineTo(128.57402,623.9718);
+    ctx.lineTo(128.57402,623.9718);
+    ctx.bezierCurveTo(333.56337,663.56871,402.85555,623.9718,402.85555,623.9718);
+    ctx.lineTo(293.14294,360.93514);
+    ctx.fill();
+    ctx.stroke();
+    
+    ctx.restore();
+    
+    
     return canvas;
 };
 
@@ -8745,14 +8787,54 @@ SymbolMorph.prototype.drawSymbolTurtleOutline = function (canvas, color) {
     // answer a canvas showing a turtle
     var ctx = canvas.getContext('2d');
 
-    ctx.strokeStyle = color.toString();
+    /*ctx.strokeStyle = color.toString();
     ctx.beginPath();
     ctx.moveTo(0, 0);
     ctx.lineTo(canvas.width, canvas.height / 2);
     ctx.lineTo(0, canvas.height);
     ctx.lineTo(canvas.height / 2, canvas.height / 2);
     ctx.closePath();
+    ctx.stroke();*/
+    
+    ctx.save();
+    ctx.scale(1.0666666666651994*canvas.width/500,1.0666666666651994*canvas.height/717);
+    
+    //ctx.fillStyle = color.toString();
+    ctx.strokeStyle = color.toString();
+    ctx.lineWidth = 10;
+    ctx.beginPath();
+    ctx.moveTo(297.14286,160.93363);
+    ctx.bezierCurveTo(297.14286,160.93363,297.14286,160.93363,2.857143,3.790776);
+    ctx.bezierCurveTo(148.57143,295.21935,151.42857,295.21935,151.42857,295.21935);
+    //ctx.fill();
     ctx.stroke();
+    
+    //ctx.fillStyle = color.toString();
+    ctx.strokeStyle = color.toString();
+    ctx.lineWidth = 10;
+    ctx.beginPath();
+    ctx.moveTo(260,155.21933);
+    ctx.bezierCurveTo(323.118255,155.21933,374.28571,202.54923,374.28571,260.93362);
+    ctx.bezierCurveTo(374.28571,319.31801,323.118255,366.64791,260,366.64791);
+    ctx.bezierCurveTo(196.881745,366.64791,145.71429,319.31801,145.71429,260.93362);
+    ctx.bezierCurveTo(145.71429,202.54923,196.881745,155.21933,260,155.21933);
+    ctx.closePath();
+    //ctx.fill();
+    ctx.stroke();
+    
+    //ctx.fillStyle = color.toString();
+    ctx.strokeStyle = color.toString();
+    ctx.lineWidth = 10;
+    ctx.beginPath();
+    ctx.moveTo(235.39946,369.42021);
+    ctx.lineTo(128.57402,623.9718);
+    ctx.lineTo(128.57402,623.9718);
+    ctx.bezierCurveTo(333.56337,663.56871,402.85555,623.9718,402.85555,623.9718);
+    ctx.lineTo(293.14294,360.93514);
+    //ctx.fill();
+    ctx.stroke();
+    
+    ctx.restore();
 
     return canvas;
 };
