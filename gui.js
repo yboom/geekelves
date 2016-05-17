@@ -2802,6 +2802,8 @@ IDE_Morph.prototype.getMediaList = function (dirname) {
     data = this.parseResourceFile(this.getURL(url));
 
     data.sort(function (x, y) {
+    	if (x.index>y.index) return 1;
+    	else
         return x.name.toLowerCase() < y.name.toLowerCase() ? -1 : 1;
     });
 
@@ -2814,6 +2816,7 @@ IDE_Morph.prototype.parseResourceFile = function (text) {
     // A File is very simple:
     // A "//" starts a comment line, that is ignored.
     // All lines have 3 fields: file-name, Display Name, Help Text
+    // Some lines have optional 4th field: index to give order
     // These fields are delimited by tabs.
     var parts,
         items = [],
@@ -2837,7 +2840,8 @@ IDE_Morph.prototype.parseResourceFile = function (text) {
         items.push({
             file: parts[0],
             name: parts[1],
-            help: parts.length > 2 ? parts[2] : ''
+            help: parts.length > 2 ? parts[2] : '',
+            index: parts.length > 3 ? parseInt(parts[3]) : 99999
         });
     });
 
